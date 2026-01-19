@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#007BFF"          # ボタンなどのメインカラー（青）
+backgroundColor = "#F8F9FA"       # 背景色（薄いグレー）
+secondaryBackgroundColor = "#FFFFFF" # サイドバーなどの色
+textColor = "#212529"             # 文字の色
+font = "sans serif"               # フォント
