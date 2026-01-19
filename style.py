@@ -38,32 +38,7 @@ def apply_custom_css():
             background-color: #f0f2f6;
         }
         
-        /* システムラベル（サイドバー最下部に固定） */
-        .sys-info {
-            position: fixed;
-            bottom: 20px;
-            width: 260px;
-            padding: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 11px;
-            color: #7f8c8d;
-            border-top: 1px solid #dcdde1;
-        }
-        .m4-badge {
-            background-color: #000;
-            color: #fff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 10px;
-            margin-right: 5px;
-        }
     </style>
-
-    <div class="sys-info">
-        <div><span class="m4-badge">M4 PRO</span> Optimized Environment</div>
-        <div>CPU: 12-Core / GPU: 16-Core</div>
-        <div>Status: System Nominal</div>
     </div>
     """, unsafe_allow_html=True)
 
