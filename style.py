@@ -42,13 +42,3 @@ def apply_custom_css():
     </div>
     """, unsafe_allow_html=True)
 
-    # サイドバーにあなたのプロフィールを追加
-    with st.sidebar:
-        st.markdown("### 🛠️ Developer Profile")
-        st.info("""
-        **Generative AI Engineer Trainee**
-        
-        SQL学習をもっと楽しく、直感的に。
-        Mac mini M4 Proのパワーを活かして開発しています。
-        """)
-        st.divider()
