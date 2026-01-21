@@ -1,6 +1,6 @@
 import streamlit as st
 
-def apply_custom_css(progress_val=75):
+def apply_custom_css(progress_val=0):
     """アプリ全体のモダンデザインとサイドバーの装飾を一括適用"""
     st.markdown("""
     <style>
