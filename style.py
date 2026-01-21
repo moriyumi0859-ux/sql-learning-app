@@ -2,6 +2,14 @@ import streamlit as st
 
 def apply_custom_css(progress_val=0):
     """アプリ全体のモダンデザインとサイドバーの装飾を一括適用"""
+    
+    # プログレスバーが「満タン」になるのを防ぐための補正
+    # 1.0より大きい（25など）場合は100で割って 0.25 に変換する
+    if progress_val > 1.0:
+        display_val = progress_val / 100.0
+    else:
+        display_val = progress_val
+
     st.markdown("""
     <style>
         /* 1. ボタン：浮き出るモダンデザイン */
@@ -36,32 +44,35 @@ def apply_custom_css(progress_val=0):
             outline: none !important;
         }
 
-        /* サイドバーの背景色 */
+        /* サイドバーの背景色をパステルブルーに変更 */
         section[data-testid="stSidebar"] {
-            background-color: #f8f9fa;
+            background-color: #eef2f6 !important;
         }
     </style>
     """, unsafe_allow_html=True)
 
-    # サイドバーのコンテンツ（ここからの段落を揃えました）
+    # サイドバーのコンテンツ
     with st.sidebar:
         st.title("🎓 SQL学習アプリ")
         
         st.caption("📈 学習の進捗")
         
-        # 条件分岐のロジック
-        if progress_val <= 25:
+        # メッセージ判定（progress_valが整数の場合でも動作するように判定）
+        p_check = progress_val if progress_val > 1.0 else progress_val * 100
+        
+        if p_check <= 25:
             status_text = "Step 1: 🔰 基本フェーズ"
-        elif progress_val <= 50:
+        elif p_check <= 50:
             status_text = "Step 2: 🔗 結合マスター"
-        elif progress_val <= 75:
+        elif p_check <= 75:
             status_text = "Step 3: 🤖 AI分析（応用）"
-        elif progress_val <= 100:
+        elif p_check <= 100:
             status_text = "Step 4: 📝 Quiz Drill（総仕上げ）"
         else:
             status_text = "学習完了！"
             
-        st.progress(progress_val, text=status_text)  
+        # 補正後の display_val を使って描画
+        st.progress(display_val, text=status_text)  
       
         st.divider()
         
