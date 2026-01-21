@@ -1,6 +1,6 @@
 import streamlit as st
 
-def apply_custom_css():
+def apply_custom_css(progress_val=75):
     """アプリ全体のモダンデザインとサイドバーの装飾を一括適用"""
     st.markdown("""
     <style>
@@ -45,14 +45,24 @@ def apply_custom_css():
 
     # サイドバーのコンテンツ
     with st.sidebar:
-        st.header("🚀 SQL Learning")
+st.title("🎓 SQL学習アプリ")
         
-        st.divider()
-        
-        # 進捗バー（Streamlit標準機能なので確実に動きます）
         st.caption("📈 学習の進捗")
-        st.progress(75, text="現在は「AI応用」フェーズ") 
         
+        # 条件をすべて明記する書き方（elifを使います）
+        if progress_val <= 25:
+            status_text = "Step 1: 🔰 基本フェーズ"
+        elif progress_val <= 50:
+            status_text = "Step 2: 🔗 結合マスター"
+        elif progress_val <= 75:
+            status_text = "Step 3: 🤖 AI分析（応用）"
+        elif progress_val <= 100:  # ← ここを明記しました
+            status_text = "Step 4: 📝 Quiz Drill（総仕上げ）"
+        else:
+            status_text = "学習完了！"
+            
+        st.progress(progress_val, text=status_text)  
+      
         st.divider()
         
         # 今日のヒント
