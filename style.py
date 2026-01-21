@@ -43,20 +43,20 @@ def apply_custom_css(progress_val=75):
     </style>
     """, unsafe_allow_html=True)
 
-    # サイドバーのコンテンツ
+    # サイドバーのコンテンツ（ここからの段落を揃えました）
     with st.sidebar:
-st.title("🎓 SQL学習アプリ")
+        st.title("🎓 SQL学習アプリ")
         
         st.caption("📈 学習の進捗")
         
-        # 条件をすべて明記する書き方（elifを使います）
+        # 条件分岐のロジック
         if progress_val <= 25:
             status_text = "Step 1: 🔰 基本フェーズ"
         elif progress_val <= 50:
             status_text = "Step 2: 🔗 結合マスター"
         elif progress_val <= 75:
             status_text = "Step 3: 🤖 AI分析（応用）"
-        elif progress_val <= 100:  # ← ここを明記しました
+        elif progress_val <= 100:
             status_text = "Step 4: 📝 Quiz Drill（総仕上げ）"
         else:
             status_text = "学習完了！"
