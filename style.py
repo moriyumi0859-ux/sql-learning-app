@@ -20,7 +20,7 @@ def apply_custom_css():
             box-shadow: 0 8px 25px rgba(110, 142, 251, 0.4);
         }
 
-        /* 2. 入力枠：二重線を完全に解消 */
+        /* 2. 入力枠：二重線を解消 */
         div[data-baseweb="input"], div[data-baseweb="textarea"] {
             border: none !important;
         }
@@ -36,7 +36,7 @@ def apply_custom_css():
             outline: none !important;
         }
 
-        /* サイドバーの背景色 */
+        /* サイドバーのデザイン */
         section[data-testid="stSidebar"] {
             background-color: #f8f9fa;
         }
@@ -50,7 +50,8 @@ def apply_custom_css():
         # 全体の進捗バー
         st.progress(75, text="現在は「Step 3: AI応用」フェーズ") 
         
-        # 学習ステップのマイルストーン（詳細説明入り）
+        # 学習ステップのマイルストーン
+        # ここで unsafe_allow_html=True を指定することで枠線などを正しく表示させます
         st.markdown("""
         <div style='font-size: 0.85rem; line-height: 1.7; background-color: #ffffff; padding: 15px; border-radius: 12px; border: 1px solid #eef2f6; box-shadow: 0 2px 4px rgba(0,0,0,0.05);'>
             <b style='color: #6e8efb;'>Step 1: 🔰 Playground</b><br>
