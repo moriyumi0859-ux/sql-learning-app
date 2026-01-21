@@ -8,7 +8,7 @@ if 'layout_set' not in st.session_state:
     st.set_page_config(layout="wide")
     st.session_state.layout_set = True
 
-apply_custom_css()  # 立体的なボタンなどのデザインを適用
+apply_custom_css(progress_val=50)
 
 st.title("🔗 テーブル結合（JOIN）マスター")
 

@@ -5,7 +5,7 @@ from style import apply_custom_css
 import pandas as pd
 
 # デザイン適用
-apply_custom_css()
+apply_custom_css(progress_val=75)
 
 st.title("🤖 AI SQL Search")
 

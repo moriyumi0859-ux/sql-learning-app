@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 st.title("📝 SQL Quiz Drill")
-apply_custom_css()
+apply_custom_css(progress_val=100)
 
 # 1. データの読み込み
 @st.cache_data

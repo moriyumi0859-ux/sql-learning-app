@@ -4,7 +4,7 @@ import plotly.express as px
 import pandas as pd
 from style import apply_custom_css
 
-apply_custom_css()
+apply_custom_css(progress_val=25)
 
 st.title("📊 SQL Playground")
 
