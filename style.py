@@ -20,18 +20,25 @@ def apply_custom_css():
             box-shadow: 0 8px 25px rgba(110, 142, 251, 0.4);
         }
 
-        /* 2. 入力枠：二重線を防ぎ、フォーカス時に光らせる */
-        /* 標準の枠線を消すのではなく、自然に馴染ませます */
+        /* 2. 入力枠：二重線を完全に解消するための修正 */
+        
+        /* Streamlit標準の「外側の枠線」を非表示にする */
+        div[data-baseweb="input"], div[data-baseweb="textarea"] {
+            border: none !important;
+        }
+
+        /* 内側の入力欄（実際のテキストエリア）の線だけを綺麗に一本にする */
         .stTextArea textarea, .stTextInput input {
-            border: 1px solid #e0e0e0 !important; /* 細い一本線に固定 */
+            border: 1px solid #e0e0e0 !important;
             border-radius: 10px !important;
+            background-color: #ffffff !important;
             transition: all 0.3s ease;
         }
         
-        /* 入力中（フォーカス時）の演出 */
+        /* 選択（フォーカス）した際の外側に光る輪を出す演出 */
         .stTextArea textarea:focus, .stTextInput input:focus {
             border-color: #6e8efb !important;
-            box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.2) !important; /* 外側に光る輪を出す */
+            box-shadow: 0 0 0 2px rgba(110, 142, 251, 0.2) !important;
             outline: none !important;
         }
 
