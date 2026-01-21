@@ -20,50 +20,58 @@ def apply_custom_css():
             box-shadow: 0 8px 25px rgba(110, 142, 251, 0.4);
         }
 
-        /* 2. 入力枠：二重線を完全に解消するための修正 */
-        
-        /* Streamlit標準の「外側の枠線」を非表示にする */
+        /* 2. 入力枠：二重線を完全に解消 */
         div[data-baseweb="input"], div[data-baseweb="textarea"] {
             border: none !important;
         }
-
-        /* 内側の入力欄（実際のテキストエリア）の線だけを綺麗に一本にする */
         .stTextArea textarea, .stTextInput input {
             border: 1px solid #e0e0e0 !important;
             border-radius: 10px !important;
             background-color: #ffffff !important;
             transition: all 0.3s ease;
         }
-        
-        /* 選択（フォーカス）した際の外側に光る輪を出す演出 */
         .stTextArea textarea:focus, .stTextInput input:focus {
             border-color: #6e8efb !important;
             box-shadow: 0 0 0 2px rgba(110, 142, 251, 0.2) !important;
             outline: none !important;
         }
 
-        /* サイドバーの背景色を少し明るく */
+        /* サイドバーの背景色 */
         section[data-testid="stSidebar"] {
             background-color: #f8f9fa;
         }
     </style>
     """, unsafe_allow_html=True)
 
-    # サイドバーのコンテンツ（日本語版）
+    # サイドバーのコンテンツ
     with st.sidebar:
-        st.divider()
-        st.caption("🚀 学習ロードマップ")
-        st.progress(75, text="現在は「AI応用」フェーズ") 
+        st.markdown("## 🚀 SQL学習ロードマップ")
         
+        # 全体の進捗バー
+        st.progress(75, text="現在は「Step 3: AI応用」フェーズ") 
+        
+        # 学習ステップのマイルストーン（詳細説明入り）
         st.markdown("""
-        <div style='font-size: 0.8rem; color: #666; background-color: #ffffff; padding: 10px; border-radius: 10px; border: 1px solid #eee;'>
-        <b>💻 システム稼働状況</b><br>
-        🟢 データベース: 接続済み<br>
-        🟢 AIエンジン: 待機中 (GPT-4o)<br>
-        🔵 環境: Mac mini M4 Pro
+        <div style='font-size: 0.85rem; line-height: 1.7; background-color: #ffffff; padding: 15px; border-radius: 12px; border: 1px solid #eef2f6; box-shadow: 0 2px 4px rgba(0,0,0,0.05);'>
+            <b style='color: #6e8efb;'>Step 1: 🔰 Playground</b><br>
+            <span style='color: #666;'>【基本】SQLの基本操作をマスター</span><br>
+            <hr style='margin: 8px 0; border: 0; border-top: 1px solid #eee;'>
+            
+            <b style='color: #6e8efb;'>Step 2: 🔗 Join Master</b><br>
+            <span style='color: #666;'>【結合】表のつながりを視覚的に理解</span><br>
+            <hr style='margin: 8px 0; border: 0; border-top: 1px solid #eee;'>
+            
+            <b style='color: #2e59d9; font-size: 0.95rem;'>Step 3: 🤖 AI Search</b><br>
+            <span style='color: #000; font-weight: bold;'>【応用】自然言語での高度なデータ分析</span><br>
+            <hr style='margin: 8px 0; border: 0; border-top: 1px solid #eee;'>
+            
+            <b style='color: #bbb;'>Step 4: 📝 Quiz Drill</b><br>
+            <span style='color: #bbb;'>【総仕上げ】習得度チェック（準備中）</span>
         </div>
         """, unsafe_allow_html=True)
         
         st.divider()
-        st.caption("💡 今日のSQLヒント")
-        st.info("JOIN（結合）のコツは、2つの表をつなぐ『接着剤（共通の列）』を見つけることです。")
+        
+        # 今日の学習ヒント
+        st.caption("💡 今日の学習ヒント")
+        st.info("SQLは『どの表から(FROM)』『どの列を(SELECT)』選ぶか、という構造を意識するのが上達の近道です。")
