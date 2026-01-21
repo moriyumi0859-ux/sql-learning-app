@@ -42,25 +42,26 @@ def apply_custom_css():
     </div>
     """, unsafe_allow_html=True)
 
-    # サイドバーにあなたのプロフィールを追加
-    with st.sidebar:
+with st.sidebar:
         st.divider() # 区切り線
         
-        # 1. 学習ロードマップ
-        st.caption("🚀 SQL Learning Roadmap")
-        st.progress(75, text="Your Journey: Advanced") # 進捗バーっぽく見せる
+        # 1. 学習ステップ（今の進み具合を視覚化）
+        st.caption("🚀 学習ロードマップ")
+        # 4つのページがあるので、3つ目まで来たということで75%に設定
+        st.progress(75, text="現在は「AI応用」フェーズ") 
         
-        # 2. ミニ情報
+        # 2. システムの状態（🟢を使って「正常に動いている」ことをアピール）
         st.markdown("""
-        <div style='font-size: 0.8rem; color: gray;'>
-        <b>System Status</b><br>
-        🟢 Database: Connected<br>
-        🟢 AI Engine: Ready (GPT-4o)<br>
+        <div style='font-size: 0.8rem; color: #666666; background-color: #ffffff; padding: 10px; border-radius: 10px; border: 1px solid #e0e0e0;'>
+        <b>💻 システム稼働状況</b><br>
+        🟢 データベース: 接続済み<br>
+        🟢 AIエンジン: 待機中 (GPT-4o)<br>
+        🔵 環境: Mac mini M4 Pro
         </div>
         """, unsafe_allow_html=True)
         
         st.divider()
         
-        # 3. ちょっとしたお遊び（今日のSQL格言など）
-        st.caption("💡 SQL Tip of the Day")
-        st.info("JOINのコツは、共通の『接着剤（Key）』を見つけることです。")
+        # 3. ワンポイントアドバイス（親切心をアピール）
+        st.caption("💡 今日のSQLヒント")
+        st.info("JOIN（結合）のコツは、2つの表をつなぐ『接着剤（共通の列）』を見つけることです。")
